@@ -1,0 +1,93 @@
+# MoveAll
+
+MoveAll is a Python-based file management utility with a graphical user interface. It allows users to move files from a source directory (or ZIP file) to a destination directory, organizing them based on file extensions.
+
+## Features
+
+- Select source folder or ZIP file
+- Choose destination folder
+- Filter files by extension
+- Move files in batches for improved performance
+- Progress bar and status updates
+- Cancellation and undo functionality
+- Multilingual support (currently supports Portuguese)
+- Logging for error tracking
+
+## Requirements
+
+- Python 3.x
+- tkinter
+- psutil
+- gettext (for localization)
+
+## Installation
+
+1. Clone the repository or download the source code.
+2. Install the required dependencies:
+   ```
+   pip install psutil
+   ```
+
+## Usage
+
+1. Run the script:
+   ```
+   python moveall_backend.py
+   ```
+2. Use the GUI to:
+   - Select a source folder or ZIP file
+   - Choose a destination folder
+   - Select file extensions to move (optional)
+   - Click "Move Files" to start the process
+
+## Main Components
+
+- `FileManager`: The main class that handles the file operations and GUI.
+- `iniciar_interface()`: Sets up the graphical user interface.
+- `selecionar_pasta_origem()`: Allows user to select the source folder.
+- `selecionar_zip_origem()`: Allows user to select a ZIP file as source.
+- `selecionar_destino()`: Allows user to select the destination folder.
+- `mover_arquivos()`: Handles the file moving process.
+- `cancelar_mover_arquivos()`: Cancels the ongoing file moving operation.
+- `desfazer_movimentacao()`: Undoes the file movement if cancelled.
+
+## Performance Optimization
+
+- Files are moved in batches to improve performance.
+- Batch size is dynamically adjusted based on CPU usage and file sizes.
+- Small files (< 1MB) are moved in larger batches for efficiency.
+
+## Localization
+
+The project supports multiple languages. Currently, it includes Portuguese translations. To add more languages:
+
+1. Create new .po files in the `locales` directory.
+2. Update the `gettext.translation()` call with the new language codes.
+
+## Logging
+
+Errors are logged to `moveall.log` for troubleshooting purposes.
+
+## Contributing
+
+Contributions to MoveAll are welcome! Please feel free to submit pull requests, create issues or suggest improvements.
+
+# Libraries Used in MoveAll
+
+1. os: For file and directory operations
+2. sys: For system-specific parameters and functions
+3. shutil: For high-level file operations
+4. tkinter: For creating the graphical user interface
+5. threading: For running file operations in a separate thread
+6. logging: For error logging
+7. gettext: For internationalization and localization
+8. psutil: For monitoring system resources (CPU usage)
+9. zipfile: For handling ZIP files
+10. tempfile: For creating temporary directories
+
+Additional tkinter modules:
+- filedialog: For file and directory selection dialogs
+- messagebox: For displaying message boxes
+- ttk: For themed widgets (used for the progress bar)
+
+Note: Most of these libraries are part of Python's standard library, except for psutil, which needs to be installed separately.
